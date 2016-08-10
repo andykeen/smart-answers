@@ -213,14 +213,14 @@ module SmartAnswer::Calculators
           @answers = { gender: "female" }
           @calculator = StatePensionAgeCalculator.new(@answers)
         end
-        should "return true for someone is approaching pension age in 4 months and 4 days time" do
+        should "return true for someone approaching state pension age in 4 months time" do
           Timecop.freeze(Date.parse('2020-01-11')) do
             @calculator.stubs(dob: Date.parse("1954-06-06"))
             assert @calculator.can_apply?
           end
         end
 
-        should "return false for someone is approaching pension age in more than  4 months and 4 days time" do
+        should "return false for someone approaching state pension age in more than  4 months time" do
           Timecop.freeze(Date.parse('2020-03-11')) do
             @calculator.stubs(dob: Date.parse("1954-12-06"))
             refute @calculator.can_apply?
@@ -233,13 +233,13 @@ module SmartAnswer::Calculators
           @answers = { gender: "male" }
           @calculator = StatePensionAgeCalculator.new(@answers.merge(dob: Date.parse("1951-12-06")))
         end
-        should "return true for someone is approaching pension age in 4 months and 4 days time" do
+        should "return true for someone approaching pension age in 4 months time" do
           Timecop.freeze(Date.parse('2016-09-11')) do
             assert @calculator.can_apply?
           end
         end
 
-        should "return false for someone is approaching pension age in more than 4 months and 4 days time" do
+        should "return false for someone approaching pension age in more than 4 months time" do
           Timecop.freeze(Date.parse('2016-03-11')) do
             refute @calculator.can_apply?
           end
