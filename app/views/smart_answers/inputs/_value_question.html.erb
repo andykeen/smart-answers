@@ -1,5 +1,6 @@
 <label for="response">
-  <%= question.label %>
-  <%= text_field_tag('response', prefill_value_for(question)) %>
-  <%= question.suffix_label %>
+  <%= render partial: "smart_answers/label", locals: { question: question } %>
 </label>
+<span class="labelish"><%= question.label %></span>
+<%= text_field_tag('response', prefill_value_for(question)) %>
+<%= question.suffix_label %>
