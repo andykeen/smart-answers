@@ -45,7 +45,7 @@
   In your fifth and sixth years, you could get:
 
   - [NHS Bursary](/nhs-bursaries) (NHS funding towards your fees and living costs)
-  - £X,XXX reduced Maintenance Loan to pay living costs
+  - <%= number_to_currency(calculator.reduced_maintenance_loan_for_healthcare, precision: 0) %> reduced Maintenance Loan to pay living costs
 
   ^ If you're on a 4 year accelerated graduate course, you'll have to apply for an NHS bursary from your second year.
 
@@ -54,10 +54,10 @@
   You could get each year:
 
   - [NHS Bursary](/nhs-bursaries) (NHS funding towards your fees and living costs)
-  - £X,XXX reduced Maintenance Loan to pay living costs
+  - <%= number_to_currency(calculator.reduced_maintenance_loan_for_healthcare, precision: 0) %> reduced Maintenance Loan to pay living costs
 
   <%= render partial: 'uk_extra_help.govspeak.erb' %>
 
   <%= render partial: 'next_steps.govspeak.erb' %>
-  
+
 <% end %>
