@@ -2,6 +2,10 @@
   What was the last normal payday before <%= format_date(sick_start_date_for_awe) %>?
 <% end %>
 
+<% content_for :hint do %>
+  Include children and non-paying guests. Don't include paying guests or anyone using the premises as part of your business. Give an average if there are more people at certain times of the year.
+<% end %>
+
 <% content_for :error_message do %>
   You must enter a date before <%= format_date(sick_start_date_for_awe) %>
 <% end %>
